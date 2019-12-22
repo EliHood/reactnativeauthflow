@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {StyleSheet, View, Button, TextInput} from 'react-native';
 import LoginForm from '../forms/login/login';
-import {Subheading} from 'react-native-paper';
+import {Subheading,  Dialog} from 'react-native-paper';
+import IsAuth from '../../hoc/isAuth'
 class LoginView extends Component {
   state = {
     email: '',
@@ -16,20 +17,25 @@ class LoginView extends Component {
     this.setState({password});
   };
 
-  onLogin = async () => {
+  onLogin = () => {
     const {email, password} = this.state;
     try {
       if (email.length > 0 && password.length > 0) {
-        this.props.navigation.navigate('Home');
+        const formData = {
+          email,
+          password
+        };
+        this.props.signInInit(formData);
       }
     } catch (error) {
       alert(error);
     }
   };
 
-  goToSignup = () => this.props.navigation.navigate('Signup');
+  // goToSignup = () => this.props.navigation.navigate('Signup');
   render() {
     const {email, password} = this.state;
+    // console.log(this.props.user)
     return (
       <Fragment>
         <Subheading style={styles.labels}>Log In</Subheading>
@@ -63,4 +69,4 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 });
-export default LoginView;
+export default IsAuth(LoginView);

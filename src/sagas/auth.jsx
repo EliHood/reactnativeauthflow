@@ -23,6 +23,7 @@ export function* registerUser(action) {
 
     yield put(actions.signUpSuccess(user));
   } catch (error) {
+    alert(e.message)
     yield put(actions.signUpFailure(error));
   }
 }
@@ -39,23 +40,26 @@ async function removeUserStorage() {
   try {
     await AsyncStorage.removeItem('newUser').then(value => {
       const data = JSON.stringify(value);
-      console.log('dssss', data);
     });
   } catch (e) {
     console.log(e);
   }
 }
 
-export function* currentUser() {
-  try {
-    const user = yield call(api.user.currentUser);
-    console.log(user);
-
-    yield put(actions.checkCurrentUserSuccess('success'));
-  } catch (error) {
-    yield put(actions.checkCurrentUserFailure(error));
+export function* signIn(action){
+  try{
+    console.log('sdff', action)
+    const userCredentials = yield call(reduxSagaFirebase.auth.signInWithEmailAndPassword, action.payload.email, action.payload.password)
+    // this sets the uid to storage, so react native will know that the user is still signed in
+    setUser(userCredentials.user.providerData[0].uid);
+    yield put(actions.signInSuccess(userCredentials))
+  }catch(e){
+    alert(e.message)
+    yield put(actions.signInFailure(e.message))
   }
 }
+
+
 export function* signOut(action) {
   try {
     yield call(reduxSagaFirebase.auth.signOut);
@@ -66,17 +70,17 @@ export function* signOut(action) {
     yield put(actions.signOutFailure(error));
   }
 }
+export function* watchSignIn(){
+  yield takeLatest(types.SIGNIN_INIT, signIn)
+}
 export function* watchUserRegister() {
   yield takeLatest(types.SIGNUP_INIT, registerUser);
 }
 export function* watchSignOut() {
   yield takeLatest(types.SIGNOUT_INIT, signOut);
 }
-export function* checkUser() {
-  yield takeLatest(types.CHECK_CURRENT_USER, currentUser);
-}
 export default function*() {
   yield fork(watchUserRegister);
-  yield fork(checkUser);
   yield fork(watchSignOut);
+  yield fork(watchSignIn)
 }

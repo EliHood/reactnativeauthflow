@@ -31,7 +31,7 @@ class SignUpView extends Component {
   goToSignup = () => this.props.navigation.navigate('Signup');
   render() {
     const {email, password} = this.state;
-    console.log('dsds', this.props);
+    // console.log('dsds', this.props);
     return (
       <Fragment>
         <Subheading style={styles.labels}> Sign Up</Subheading>

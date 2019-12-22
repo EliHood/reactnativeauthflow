@@ -16,7 +16,7 @@ export default function(WrappedComponent) {
     static getDerivedStateFromProps(nextProps) {
       if (nextProps.user.isAuthenticated) {
         nextProps.navigation.navigate('Home');
-        console.log('is auth', nextProps.navigation);
+        // console.log('is auth', nextProps.navigation);
       }
       if (nextProps.errors) {
         return {errors: nextProps.errors};

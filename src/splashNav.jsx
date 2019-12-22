@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 import SignUpView from './containers/signup';
 import {createAppContainer} from 'react-navigation';
-import LoginView from './components/screens/Login';
+import LoginView from './containers/login';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const AuthNavigation = createStackNavigator(

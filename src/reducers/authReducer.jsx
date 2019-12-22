@@ -28,6 +28,14 @@ const authReducer = (state = initialState, action) =>
         console.log(action);
         draft.isAuthenticated = false;
         return;
+      case types.SIGNIN_SUCCESS:
+        console.log(action)
+        draft.isAuthenticated = true
+        return;
+      case types.SIGNIN_FAILURE:
+        console.log(action);
+        draft.error = action.error
+        return
       case types.CHECK_CURRENT_USER_SUCCESS:
         console.log(action);
         draft.isAuthenticated = true;
