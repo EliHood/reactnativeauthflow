@@ -1,6 +1,7 @@
 import React from 'react';
 import {ActivityIndicator, StatusBar, StyleSheet, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import { fireAuth } from "../firebaseConfig";
 export default class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,6 @@ export default class AuthLoadingScreen extends React.Component {
       isLoading: true,
     };
   }
-
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
     console.log('this got called');
@@ -27,9 +27,9 @@ export default class AuthLoadingScreen extends React.Component {
   // Render any loading content that you like here
   render() {
     return (
-      <View style={[styles.container, styles.horizontal]}>
+      this.state.isLoading ? <View style={[styles.container, styles.horizontal]}>
         <ActivityIndicator size={60} color="#333" />
-      </View>
+      </View>: null
     );
   }
 }

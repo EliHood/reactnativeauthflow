@@ -1,9 +1,9 @@
-import React from 'react';
-import {createStackNavigator} from 'react-navigation-stack';
-import SignUpView from './containers/signup';
-import {createAppContainer} from 'react-navigation';
-import LoginView from './containers/login';
-import Icon from 'react-native-vector-icons/AntDesign';
+import React from "react";
+import { createStackNavigator } from "react-navigation-stack";
+import SignUpView from "./containers/signup";
+import { createAppContainer } from "react-navigation";
+import LoginView from "./containers/login";
+import Icon from "react-native-vector-icons/AntDesign";
 
 const AuthNavigation = createStackNavigator(
   {
@@ -13,12 +13,12 @@ const AuthNavigation = createStackNavigator(
         title: `Login to your account`,
         headerBackTitle: null,
         headerTitleStyle: {
-          color: '#fff',
+          color: "#fff",
           padding: 20,
           margin: 0,
         },
         headerStyle: {
-          backgroundColor: '#333',
+          backgroundColor: "#333",
         },
       }),
     },
@@ -28,18 +28,18 @@ const AuthNavigation = createStackNavigator(
         title: `Welcome to this app`,
         headerBackTitle: null,
         headerTitleStyle: {
-          color: '#fff',
+          color: "#fff",
           padding: 20,
           margin: 0,
         },
         headerStyle: {
-          backgroundColor: '#333',
+          backgroundColor: "#333",
         },
       }),
     },
   },
   {
-    initialRouteName: 'Signup',
+    initialRouteName: "Signup",
   },
 );
 export default createAppContainer(AuthNavigation);

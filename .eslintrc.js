@@ -1,12 +1,7 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
+    "parser": "babel-eslint",
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-native/all",
+        '@react-native-community',  
     ],
     "globals": {
         "Atomics": "readonly",
@@ -21,11 +16,16 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "react-native",
-        "prettier",
-        
+        "react-native",  
     ],
     "rules": {
-        "react/jsx-filename-extension": [0]
+        "react/react-in-jsx-scope": 0,
+        "no-console": 0,
+        "react/display-name":0,
+        "react/prop-types":0,
+        "quotes":0,
+        "no-unused-vars":0,
+        "no-alert": 0,
+        "comma-dangle": ["error", "never"],
     }
 };

@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {createAppContainer} from 'react-navigation';
-import AuthLoadingScreen from './AuthLoadingScreen';
-import AuthNavigation from './splashNav';
-import AppNavigator from './loggedInNav';
-import {createStackNavigator} from 'react-navigation-stack';
+import React, { Component } from "react";
+import { createAppContainer } from "react-navigation";
+import AuthLoadingScreen from "./AuthLoadingScreen";
+import AuthNavigation from "./splashNav";
+import AppNavigator from "./loggedInNav";
+import { createStackNavigator } from "react-navigation-stack";
 export default createAppContainer(
   createStackNavigator(
     {
@@ -14,8 +14,8 @@ export default createAppContainer(
       Auth: AuthNavigation,
     },
     {
-      initialRouteName: 'AuthLoading',
-      headerMode: 'none',
+      initialRouteName: "AuthLoading",
+      headerMode: "none",
     },
   ),
 );

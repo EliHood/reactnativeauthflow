@@ -1,2 +1,3 @@
-import auth from './auth';
-export default [auth];
+import auth from "./auth";
+import post from "./post";
+export default [auth, post];

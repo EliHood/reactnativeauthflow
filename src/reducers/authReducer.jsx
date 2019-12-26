@@ -1,12 +1,12 @@
-import produce from 'immer';
-import * as types from '../actionTypes/auth/authTypes';
-import {checkUser} from '../utils';
+import produce from "immer";
+import * as types from "../actionTypes/auth/authTypes";
+import { checkUser } from "../utils";
 const initialState = {
   isAuthenticated: false,
-  error: '',
+  error: "",
   currentUser: false,
   isLoading: false,
-  message: '',
+  message: "",
 };
 
 const authReducer = (state = initialState, action) =>
@@ -29,13 +29,13 @@ const authReducer = (state = initialState, action) =>
         draft.isAuthenticated = false;
         return;
       case types.SIGNIN_SUCCESS:
-        console.log(action)
-        draft.isAuthenticated = true
+        console.log(action);
+        draft.isAuthenticated = true;
         return;
       case types.SIGNIN_FAILURE:
         console.log(action);
-        draft.error = action.error
-        return
+        draft.error = action.error;
+        return;
       case types.CHECK_CURRENT_USER_SUCCESS:
         console.log(action);
         draft.isAuthenticated = true;

@@ -1,2 +1,2 @@
-import checkUser from './checkUser';
-export {checkUser};
+import checkUser from "./checkUser";
+export { checkUser };

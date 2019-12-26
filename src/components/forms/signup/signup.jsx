@@ -1,7 +1,7 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
-import {Subheading} from 'react-native-paper';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { TextInput, Button } from "react-native-paper";
+import { Subheading } from "react-native-paper";
 const SignUpForm = props => (
   <View style={styles.container}>
     <TextInput
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   textField: {
     marginBottom: 20,
-    borderTopColor: '#000',
+    borderTopColor: "#000",
   },
   buttonCol: {},
 });

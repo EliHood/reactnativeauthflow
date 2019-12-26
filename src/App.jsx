@@ -6,24 +6,24 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar,
-} from 'react-native';
+  StatusBar
+} from "react-native";
 
 import {
   DefaultTheme,
   Provider as PaperProvider,
-  Appbar,
-} from 'react-native-paper';
-import {Provider} from 'react-redux';
-import {store} from './store';
-import AuthNav from './authNav';
+  Appbar
+} from "react-native-paper";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import AuthNav from "./authNav";
 // you can set your style right here, it'll be propagated to application
 
 const theme = {
@@ -31,9 +31,9 @@ const theme = {
   roundness: 4,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#333',
-    accent: '#f1c40f',
-  },
+    primary: "#333",
+    accent: "#B9D2B1"
+  }
 };
 
 class App extends Component {

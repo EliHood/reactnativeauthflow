@@ -1,12 +1,12 @@
-import * as types from '../../actionTypes/auth/authTypes';
+import * as types from "../../actionTypes/auth/authTypes";
 export const signUpInit = payload => ({
   type: types.SIGNUP_INIT,
-  payload,
+  payload
 });
 
 export const signUpSuccess = payload => ({
   type: types.SIGNUP_SUCCESS,
-  payload,
+  payload
 });
 
 export const signUpFailure = error => ({
