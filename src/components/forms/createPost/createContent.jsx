@@ -2,33 +2,34 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
 
-const PostForm = props => (
+const ContentForm = props => (
   <View style={styles.container}>
     <HelperText
       type="error"
-      visible={props.hasError.title ? props.title.length < 6 : null}
+      visible={props.hasError.content ? props.content.length < 10 : null}
     >
-      Title must be at least 6 chars
+      Content must be more than 10 chars
     </HelperText>
     <TextInput
       style={styles.textField}
-      name="title"
+      name="content"
+      multiline={true}
+      numberOfLines={4}
       mode="outlined"
-      label="Enter Title"
-      value={props.title}
-      error={props.hasError.title ? props.title.length < 6 : null}
+      label="Enter content"
+      value={props.content}
+      error={props.hasError.content ? props.content.length < 10 : null}
       autoCapitalize="none"
-      onChangeText={props.titleChange}
-      onFocus={props.validateTitle}
+      onChangeText={props.contentChange}
+      onFocus={props.validateContent}
     />
-
     <Button
       disabled={props.disButton}
       style={styles.postbtn}
       mode="outlined"
       onPress={props.onSubmit}
     >
-      Proceed
+      Submit
     </Button>
   </View>
 );
@@ -48,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PostForm;
+export default ContentForm;

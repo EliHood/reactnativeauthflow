@@ -3,7 +3,9 @@ import * as types from "../actionTypes/post/postTypes";
 
 const initialState = {
   error: "",
-  posts: []
+  posts: [],
+  title: "",
+  content: ""
 };
 
 const postReducer = (state = initialState, action) =>
@@ -17,6 +19,9 @@ const postReducer = (state = initialState, action) =>
         console.log(action);
         draft.error = action.error;
         return;
+      case types.ADD_TITLE:
+        draft.title = action.data;
+        break;
     }
   });
 

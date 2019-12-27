@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { Subheading, Dialog } from "react-native-paper";
+import { withNavigation } from "react-navigation";
 import PostForm from "../forms/createPost/createPost";
-export default class AddPostView extends Component {
+class AddTitleView extends Component {
   state = {
     title: "",
     content: "",
@@ -13,6 +14,7 @@ export default class AddPostView extends Component {
   };
   titleChange = title => {
     this.setState({ title });
+    this.props.addTitle(title);
   };
   validate = field => {
     console.log("tet", field);
@@ -24,36 +26,19 @@ export default class AddPostView extends Component {
   contentChange = content => {
     this.setState({ content });
   };
-  onSubmit = () => {
-    console.log(this.state);
-    const { title, content } = this.state;
-    const formData = {
-      title,
-      content
-    };
-    console.log(this.props);
-    console.log(formData);
-  };
 
   render() {
-    const isEnabled =
-      this.state.title.length < 6 || this.state.content.length < 10
-        ? true
-        : false;
-
+    const isEnabled = this.state.title.length > 6 ? false : true;
     return (
       <Fragment>
         <Subheading style={styles.labels}> Add An Entry</Subheading>
         <PostForm
           title={this.state.title}
           titleChange={this.titleChange}
-          content={this.state.content}
-          contentChange={this.contentChange}
           disButton={isEnabled}
           hasError={this.state.touched}
-          onSubmit={this.onSubmit}
+          onSubmit={() => this.props.navigation.navigate("Content")}
           validateTitle={() => this.validate("title")}
-          validateContent={() => this.validate("content")}
         />
       </Fragment>
     );
@@ -69,3 +54,5 @@ const styles = StyleSheet.create({
     marginTop: 50
   }
 });
+
+export default AddTitleView;

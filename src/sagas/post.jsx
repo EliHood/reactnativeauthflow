@@ -13,11 +13,14 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 export function* createPost(action) {
   try {
-    console.log(action);
-    // yield call(reduxSagaFirebase.firestore.addDocument, "posts", {
-    //   uid: fireAuth.currentUser.uid
-    // });
-    yield put(actions.createPostSuccess("test"));
+    const title = action.payload.title;
+    const content = action.payload.content;
+    yield call(reduxSagaFirebase.firestore.addDocument, "posts", {
+      title: title,
+      content: content,
+      uid: fireAuth.currentUser.uid
+    });
+    yield put(actions.createPostSuccess(content));
   } catch (error) {
     alert(error.message);
     yield put(actions.createPostFailure(error));

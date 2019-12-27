@@ -3,19 +3,21 @@ import { createAppContainer } from "react-navigation";
 import AuthLoadingScreen from "./AuthLoadingScreen";
 import AuthNavigation from "./splashNav";
 import AppNavigator from "./loggedInNav";
+import OtherNavigation from "./otherNav";
 import { createStackNavigator } from "react-navigation-stack";
 export default createAppContainer(
   createStackNavigator(
     {
       AuthLoading: {
-        screen: AuthLoadingScreen,
+        screen: AuthLoadingScreen
       },
       App: AppNavigator,
-      Auth: AuthNavigation,
+      Content: OtherNavigation,
+      Auth: AuthNavigation
     },
     {
       initialRouteName: "AuthLoading",
-      headerMode: "none",
-    },
-  ),
+      headerMode: "none"
+    }
+  )
 );

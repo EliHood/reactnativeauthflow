@@ -15,12 +15,12 @@ const AuthNavigation = createStackNavigator(
         headerTitleStyle: {
           color: "#fff",
           padding: 20,
-          margin: 0,
+          margin: 0
         },
         headerStyle: {
-          backgroundColor: "#333",
-        },
-      }),
+          backgroundColor: "#333"
+        }
+      })
     },
     Signup: {
       screen: SignUpView,
@@ -30,16 +30,16 @@ const AuthNavigation = createStackNavigator(
         headerTitleStyle: {
           color: "#fff",
           padding: 20,
-          margin: 0,
+          margin: 0
         },
         headerStyle: {
-          backgroundColor: "#333",
-        },
-      }),
-    },
+          backgroundColor: "#333"
+        }
+      })
+    }
   },
   {
-    initialRouteName: "Signup",
-  },
+    initialRouteName: "Signup"
+  }
 );
 export default createAppContainer(AuthNavigation);

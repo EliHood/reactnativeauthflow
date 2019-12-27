@@ -12,5 +12,10 @@ export const createPostSuccess = payload => ({
 
 export const createPostFailure = error => ({
   type: types.CREATE_POST_FAILURE,
-  error,
+  error
+});
+
+export const addTitle = data => ({
+  type: types.ADD_TITLE,
+  data
 });

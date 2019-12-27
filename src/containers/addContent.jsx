@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import AddPostView from "../components/screens/AddPost";
+import ContentView from "../components/screens/AddContent";
 import { createPost } from "../actions/post/postActions";
 const mapDispatchToProps = dispatch => ({
   createPost: postData => dispatch(createPost(postData))
@@ -11,4 +11,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddPostView);
+)(ContentView);

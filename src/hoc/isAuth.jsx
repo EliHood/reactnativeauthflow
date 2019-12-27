@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {ActivityIndicator, View} from 'react-native';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { ActivityIndicator, View } from "react-native";
 export default function(WrappedComponent) {
   class IsAuth extends Component {
     state = {
@@ -9,29 +9,28 @@ export default function(WrappedComponent) {
     };
     componentDidMount() {
       if (this.props.user.isAuthenticated) {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate("Home");
       }
-
     }
     //  this line is magic, redirects to the dashboard after user signs up
     // this replace getDerivedStateFromPropss
     static getDerivedStateFromProps(nextProps) {
       if (nextProps.user.isAuthenticated) {
-        nextProps.navigation.navigate('Home');
+        nextProps.navigation.navigate("Home");
         // console.log('is auth', nextProps.navigation);
-        return {isLoading: false}
+        return { isLoading: false };
       }
       if (nextProps.errors) {
-        return {errors: nextProps.errors};
+        return { errors: nextProps.errors };
       }
       return null;
     }
     render() {
-     return <WrappedComponent {...this.props} /> 
+      return <WrappedComponent {...this.props} />;
     }
   }
   const mapStateToProps = state => ({
-    user: state.user,
+    user: state.user
   });
   return connect(mapStateToProps)(IsAuth);
 }

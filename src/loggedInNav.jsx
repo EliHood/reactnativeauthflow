@@ -1,6 +1,6 @@
 import React from "react";
 // import HomeView from "./components/screens/Home";
-import AddPostView from "./containers/addPost";
+import AddTitleView from "./containers/addTitle";
 import SettingsView from "./containers/settings";
 import Icon from "react-native-vector-icons/AntDesign";
 import { createAppContainer } from "react-navigation";
@@ -10,14 +10,13 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 const AppNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: AddPostView,
+      screen: AddTitleView,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="home" color={tintColor} size={24} />
         )
       }
     },
-
     Dashboard: {
       screen: DashboardView,
       navigationOptions: {
@@ -39,6 +38,7 @@ const AppNavigator = createMaterialBottomTabNavigator(
   {
     initialRouteName: "Home",
     activeColor: "#f0edf6",
+    tabBarLabel: "Content",
     inactiveColor: "#333333",
     barStyle: {
       backgroundColor: "#B9D2B1",
