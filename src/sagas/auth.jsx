@@ -59,7 +59,7 @@ export function* signIn(action) {
     const userCredentials = yield call(
       reduxSagaFirebase.auth.signInWithEmailAndPassword,
       action.payload.email,
-      action.payload.password,
+      action.payload.password
     );
     // console.log("testgng aut", fireAuth.currentUser);
     // this sets the uid to storage, so react native will know that the user is still signed in

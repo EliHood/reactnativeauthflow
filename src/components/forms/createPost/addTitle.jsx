@@ -2,13 +2,10 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
 
-const PostForm = props => (
+const AddTitle = props => (
   <View style={styles.container}>
-    <HelperText
-      type="error"
-      visible={props.hasError.title ? props.title.length < 6 : null}
-    >
-      Title must be at least 6 chars
+    <HelperText type="error" visible={props.hasError}>
+      {props.hasError}
     </HelperText>
     <TextInput
       style={styles.textField}
@@ -16,10 +13,9 @@ const PostForm = props => (
       mode="outlined"
       label="Enter Title"
       value={props.title}
-      error={props.hasError.title ? props.title.length < 6 : null}
+      error={props.hasError === true || props.hasError === "" ? false : true}
       autoCapitalize="none"
       onChangeText={props.titleChange}
-      onFocus={props.validateTitle}
     />
 
     <Button
@@ -48,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PostForm;
+export default AddTitle;

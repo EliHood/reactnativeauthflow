@@ -6,7 +6,7 @@ const initialState = {
   error: "",
   currentUser: false,
   isLoading: false,
-  message: "",
+  message: ""
 };
 
 const authReducer = (state = initialState, action) =>
@@ -29,7 +29,6 @@ const authReducer = (state = initialState, action) =>
         draft.isAuthenticated = false;
         return;
       case types.SIGNIN_SUCCESS:
-        console.log(action);
         draft.isAuthenticated = true;
         return;
       case types.SIGNIN_FAILURE:

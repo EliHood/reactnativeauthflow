@@ -4,7 +4,7 @@ import AddTitleView from "./containers/addTitle";
 import SettingsView from "./containers/settings";
 import Icon from "react-native-vector-icons/AntDesign";
 import { createAppContainer } from "react-navigation";
-import DashboardView from "./components/screens/Dashboard";
+import DashboardView from "./containers/dashboard";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
 const AppNavigator = createMaterialBottomTabNavigator(

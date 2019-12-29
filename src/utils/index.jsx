@@ -1,2 +1,3 @@
 import checkUser from "./checkUser";
-export { checkUser };
+import validation from "./validation";
+export { checkUser, validation };

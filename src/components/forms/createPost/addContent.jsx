@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
 
-const ContentForm = props => (
+const AddContentForm = props => (
   <View style={styles.container}>
     <HelperText
       type="error"
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ContentForm;
+export default AddContentForm;

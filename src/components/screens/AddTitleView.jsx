@@ -2,10 +2,9 @@ import React, { Component, Fragment } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { Subheading, Dialog } from "react-native-paper";
 import { withNavigation } from "react-navigation";
-import PostForm from "../forms/createPost/createPost";
+import AddTitle from "../forms/createPost/addTitle";
 class AddTitleView extends Component {
   state = {
-    title: "",
     content: "",
     touched: {
       title: false,
@@ -13,32 +12,22 @@ class AddTitleView extends Component {
     }
   };
   titleChange = title => {
-    this.setState({ title });
-    this.props.addTitle(title);
-  };
-  validate = field => {
-    console.log("tet", field);
-    this.setState({
-      touched: { ...this.state.touched, [field]: true }
-    });
-    console.log(this.state.touched);
-  };
-  contentChange = content => {
-    this.setState({ content });
+    this.props.addTitle(title); // pass to redux
   };
 
   render() {
-    const isEnabled = this.state.title.length > 6 ? false : true;
+    const { title, error } = this.props.post;
+    const isEnabled = error === true ? false : true;
+
     return (
       <Fragment>
-        <Subheading style={styles.labels}> Add An Entry</Subheading>
-        <PostForm
-          title={this.state.title}
+        <Subheading style={styles.labels}> Add A Thought</Subheading>
+        <AddTitle
+          title={title}
           titleChange={this.titleChange}
           disButton={isEnabled}
-          hasError={this.state.touched}
+          hasError={error}
           onSubmit={() => this.props.navigation.navigate("Content")}
-          validateTitle={() => this.validate("title")}
         />
       </Fragment>
     );

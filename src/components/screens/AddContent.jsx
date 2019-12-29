@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { Subheading, Dialog } from "react-native-paper";
-import ContentForm from "../forms/createPost/createContent";
+import AddContentForm from "../forms/createPost/addContent";
 
 export default class ContentView extends Component {
   state = {
@@ -11,25 +11,25 @@ export default class ContentView extends Component {
     }
   };
   validate = field => {
-    console.log("tet", field);
+    // console.log("tet", field);
     this.setState({
       touched: { ...this.state.touched, [field]: true }
     });
-    console.log(this.state.touched);
+    // console.log(this.state.touched);
   };
   contentChange = content => {
     this.setState({ content });
   };
   onSubmit = () => {
-    console.log(this.state);
+    // console.log(this.state);
     const { content } = this.state;
     const title = this.props.post.title;
     const formData = {
       title,
       content
     };
-    console.log(formData);
-    this.props.createPost(formData);
+    // console.log(formData);
+    this.props.createPost(formData, this.props.navigation);
   };
 
   render() {
@@ -37,7 +37,7 @@ export default class ContentView extends Component {
     return (
       <Fragment>
         <Subheading style={styles.labels}> Add Content </Subheading>
-        <ContentForm
+        <AddContentForm
           content={this.state.content}
           contentChange={this.contentChange}
           hasError={this.state.touched}

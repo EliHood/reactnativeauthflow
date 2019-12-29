@@ -11,49 +11,49 @@ export const signUpSuccess = payload => ({
 
 export const signUpFailure = error => ({
   type: types.SIGNUP_FAILURE,
-  error,
+  error
 });
 
 export const signInInit = payload => ({
   type: types.SIGNIN_INIT,
-  payload,
+  payload
 });
 
 export const signInSuccess = payload => ({
   type: types.SIGNIN_SUCCESS,
-  payload,
+  payload
 });
 
 export const signInFailure = error => ({
   type: types.SIGNIN_FAILURE,
-  error,
+  error
 });
 
 export const checkCurrentUser = () => ({
-  type: types.CHECK_CURRENT_USER,
+  type: types.CHECK_CURRENT_USER
 });
 
 export const checkCurrentUserSuccess = payload => ({
   type: types.CHECK_CURRENT_USER_SUCCESS,
-  payload,
+  payload
 });
 
 export const checkCurrentUserFailure = error => ({
   type: types.CHECK_CURRENT_USER_FAILURE,
-  error,
+  error
 });
 
 export const signOutInit = payload => ({
   type: types.SIGNOUT_INIT,
-  payload,
+  payload
 });
 
 export const signOutSuccess = payload => ({
   type: types.SIGNOUT_SUCCESS,
-  payload,
+  payload
 });
 
 export const signOutFailure = error => ({
   type: types.SIGNOUT_FAILURE,
-  error,
+  error
 });

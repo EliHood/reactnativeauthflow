@@ -1,8 +1,9 @@
 import * as types from "../../actionTypes/post/postTypes";
 
-export const createPost = payload => ({
+export const createPost = (payload, history) => ({
   type: types.CREATE_POST_INIT,
-  payload
+  payload,
+  history
 });
 
 export const createPostSuccess = payload => ({
@@ -18,4 +19,18 @@ export const createPostFailure = error => ({
 export const addTitle = data => ({
   type: types.ADD_TITLE,
   data
+});
+
+export const getPostsInit = () => ({
+  type: types.INIT_GET_POSTS
+});
+
+export const getPostsSuccess = data => ({
+  type: types.GET_POSTS_SUCCESS,
+  data
+});
+
+export const getPostsFailure = error => ({
+  type: types.GET_POSTS_FAILURE,
+  error
 });
