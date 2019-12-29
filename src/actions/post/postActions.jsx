@@ -1,4 +1,4 @@
-import * as types from "../../actionTypes/post/postTypes";
+import * as types from "../../actionTypes/postTypes";
 
 export const createPost = (payload, history) => ({
   type: types.CREATE_POST_INIT,
@@ -18,6 +18,11 @@ export const createPostFailure = error => ({
 
 export const addTitle = data => ({
   type: types.ADD_TITLE,
+  data
+});
+
+export const addContent = data => ({
+  type: types.ADD_CONTENT,
   data
 });
 

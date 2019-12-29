@@ -7,7 +7,7 @@ import {
   takeEvery
 } from "redux-saga/effects";
 import * as actions from "../actions/auth/authActions";
-import * as types from "../actionTypes/auth/authTypes";
+import * as types from "../actionTypes/authTypes";
 import { reduxSagaFirebase, fireAuth } from "../../firebaseConfig";
 import AsyncStorage from "@react-native-community/async-storage";
 export function* registerUser(action) {

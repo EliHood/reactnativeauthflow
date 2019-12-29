@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import ContentView from "../components/screens/AddContent";
-import { createPost } from "../actions/post/postActions";
+import { createPost, addContent } from "../actions/post/postActions";
 const mapDispatchToProps = dispatch => ({
+  addContent: content => dispatch(addContent(content)),
   createPost: (postData, history) => dispatch(createPost(postData, history))
 });
 const mapStateToProps = state => ({

@@ -5,25 +5,16 @@ import AddContentForm from "../forms/createPost/addContent";
 
 export default class ContentView extends Component {
   state = {
-    content: "",
     touched: {
       content: false
     }
   };
-  validate = field => {
-    // console.log("tet", field);
-    this.setState({
-      touched: { ...this.state.touched, [field]: true }
-    });
-    // console.log(this.state.touched);
-  };
   contentChange = content => {
-    this.setState({ content });
+    this.props.addContent(content); // pass to redux
   };
   onSubmit = () => {
     // console.log(this.state);
-    const { content } = this.state;
-    const title = this.props.post.title;
+    const { content, title } = this.props.post;
     const formData = {
       title,
       content
@@ -33,16 +24,17 @@ export default class ContentView extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    const { content, error } = this.props.post;
+    const isEnabled = error === true ? false : true;
     return (
       <Fragment>
         <Subheading style={styles.labels}> Add Content </Subheading>
         <AddContentForm
-          content={this.state.content}
+          content={content}
           contentChange={this.contentChange}
-          hasError={this.state.touched}
+          hasError={error}
           onSubmit={this.onSubmit}
-          validateContent={() => this.validate("content")}
+          disButton={isEnabled}
         />
       </Fragment>
     );

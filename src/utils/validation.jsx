@@ -18,3 +18,15 @@ export const validateString = chars => {
     return "Field cannot be empty";
   }
 };
+
+export const validateContent = chars => {
+  if (chars.length > 0) {
+    if (chars.length > 10) {
+      return true;
+    } else {
+      return "Must be at least 10 chars";
+    }
+  } else {
+    return "Field cannot be empty";
+  }
+};

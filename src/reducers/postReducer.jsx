@@ -1,6 +1,6 @@
 import produce from "immer";
-import * as types from "../actionTypes/post/postTypes";
-import { validateString } from "../utils/validation";
+import * as types from "../actionTypes/postTypes";
+import { validateString, validateContent } from "../utils/validation";
 const initialState = {
   error: "",
   posts: [],
@@ -23,6 +23,7 @@ const postReducer = (state = initialState, action) =>
         console.log(action);
         draft.posts = [action.payload, ...draft.posts];
         draft.title = "";
+        draft.content = "";
         return;
       case types.CREATE_POST_FAILURE:
         console.log(action);
@@ -32,6 +33,11 @@ const postReducer = (state = initialState, action) =>
         console.log(validateString(action.data));
         draft.title = action.data;
         draft.error = validateString(action.data);
+        break;
+      case types.ADD_CONTENT:
+        console.log(validateContent(action.data));
+        draft.content = action.data;
+        draft.error = validateContent(action.data);
         break;
     }
   });

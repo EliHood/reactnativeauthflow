@@ -7,7 +7,7 @@ import {
   takeEvery
 } from "redux-saga/effects";
 import * as actions from "../actions/post/postActions";
-import * as types from "../actionTypes/post/postTypes";
+import * as types from "../actionTypes/postTypes";
 import { reduxSagaFirebase, fireAuth } from "../../firebaseConfig";
 export function* createPost(action) {
   try {

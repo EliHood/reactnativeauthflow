@@ -7,6 +7,7 @@ export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
 export const DELETE_POST_FAILURE = "DELETE_POST_FAILURE";
 
 export const ADD_TITLE = "ADD_TITLE";
+export const ADD_CONTENT = "ADD_CONTENT";
 
 // get entries
 

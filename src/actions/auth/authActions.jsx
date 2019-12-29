@@ -1,4 +1,4 @@
-import * as types from "../../actionTypes/auth/authTypes";
+import * as types from "../../actionTypes/authTypes";
 export const signUpInit = payload => ({
   type: types.SIGNUP_INIT,
   payload

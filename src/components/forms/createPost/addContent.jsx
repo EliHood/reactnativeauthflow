@@ -4,11 +4,8 @@ import { TextInput, Button, HelperText } from "react-native-paper";
 
 const AddContentForm = props => (
   <View style={styles.container}>
-    <HelperText
-      type="error"
-      visible={props.hasError.content ? props.content.length < 10 : null}
-    >
-      Content must be more than 10 chars
+    <HelperText type="error" visible={props.hasError}>
+      {props.hasError}
     </HelperText>
     <TextInput
       style={styles.textField}
@@ -18,10 +15,9 @@ const AddContentForm = props => (
       mode="outlined"
       label="Enter content"
       value={props.content}
-      error={props.hasError.content ? props.content.length < 10 : null}
+      error={props.hasError === true || props.hasError === "" ? false : true}
       autoCapitalize="none"
       onChangeText={props.contentChange}
-      onFocus={props.validateContent}
     />
     <Button
       disabled={props.disButton}
