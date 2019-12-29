@@ -1,6 +1,5 @@
 import produce from "immer";
 import * as types from "../actionTypes/authTypes";
-import { checkUser } from "../utils";
 const initialState = {
   isAuthenticated: false,
   error: "",
