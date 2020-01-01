@@ -57,3 +57,13 @@ export const signOutFailure = error => ({
   type: types.SIGNOUT_FAILURE,
   error
 });
+
+export const addEmail = data => ({
+  type: types.ADD_EMAIL,
+  data
+});
+
+export const addPassword = data => ({
+  type: types.ADD_PASSWORD,
+  data
+});
