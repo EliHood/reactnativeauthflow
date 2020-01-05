@@ -6,7 +6,7 @@ const initialState = {
   emailError: "",
   passwordError: "",
   currentUser: false,
-  isLoading: false,
+  isLoading: true,
   hasError: "",
   email: "",
   password: ""
@@ -20,6 +20,7 @@ const authReducer = (state = initialState, action) =>
         draft.isAuthenticated = true;
         draft.email = "";
         draft.password = "";
+        draft.loading = false;
         return;
       case types.SIGNUP_FAILURE:
         console.log(action);

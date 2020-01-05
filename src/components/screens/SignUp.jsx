@@ -24,7 +24,13 @@ class SignUpView extends Component {
   }
 
   render() {
-    const { email, password, emailError, passwordError } = this.props.user;
+    const {
+      email,
+      password,
+      emailError,
+      isLoading,
+      passwordError
+    } = this.props.user;
     const isEnabled =
       emailError === true && passwordError === true ? false : true;
     console.log("dsds", this.props.user);
@@ -37,6 +43,7 @@ class SignUpView extends Component {
           passwordError={passwordError}
           password={password}
           disButton={isEnabled}
+          isLoading={isLoading}
           emailChange={this.emailChange}
           passwordChange={this.handlePasswordChange}
           onSubmit={() => this._register()}
@@ -44,7 +51,7 @@ class SignUpView extends Component {
         <View style={styles.logIn}>
           <Button
             style={styles.button}
-            icon="arrow-right"
+            icon="arrow-forward"
             compact={true}
             mode="outlined"
             onPress={() => this.props.navigation.navigate("Login")}
@@ -66,7 +73,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   logIn: {
-    marginTop: 130,
+    marginTop: 170,
     flex: 1,
     padding: 20
   },

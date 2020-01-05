@@ -33,7 +33,8 @@ const theme = {
     ...DefaultTheme.colors,
     primary: "#333",
     accent: "#B9D2B1"
-  }
+  },
+  underlineColor: "transparent"
 };
 
 class App extends Component {

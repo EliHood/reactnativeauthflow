@@ -4,9 +4,6 @@ import { TextInput, Button } from "react-native-paper";
 import { Subheading, HelperText } from "react-native-paper";
 const SignUpForm = props => (
   <View style={styles.container}>
-    <HelperText style={styles.helpText} type="error" visible={props.emailError}>
-      {props.emailError}
-    </HelperText>
     <TextInput
       style={styles.textField}
       name="email"
@@ -19,8 +16,8 @@ const SignUpForm = props => (
       autoCapitalize="none"
       onChangeText={props.emailChange}
     />
-    <HelperText type="error" visible={props.passwordError}>
-      {props.passwordError}
+    <HelperText style={styles.helpText} type="error" visible={props.emailError}>
+      {props.emailError}
     </HelperText>
     <TextInput
       style={styles.textField}
@@ -37,14 +34,20 @@ const SignUpForm = props => (
       autoCapitalize="none"
       onChangeText={props.passwordChange}
     />
-    <Button
-      disabled={props.disButton}
-      style={styles.buttonCol}
-      mode="contained"
-      onPress={props.onSubmit}
-    >
-      Submit
-    </Button>
+    <HelperText type="error" visible={props.passwordError}>
+      {props.passwordError}
+    </HelperText>
+    <View style={{ alignItems: "center" }}>
+      <Button
+        raised
+        disabled={props.disButton}
+        style={styles.buttonCol}
+        compact={true}
+        onPress={props.onSubmit}
+      >
+        Submit
+      </Button>
+    </View>
   </View>
 );
 const styles = StyleSheet.create({
@@ -53,14 +56,17 @@ const styles = StyleSheet.create({
     padding: 20
   },
   helpText: {
-    padding: 0
+    padding: 0,
+    margin: 0
   },
   textField: {
-    marginTop: 5,
-    borderTopColor: "#000"
+    borderTopColor: "transparent",
+    borderLeftColor: "green"
   },
   buttonCol: {
-    marginTop: 20
+    marginTop: 20,
+    width: 200,
+    borderRadius: 3
   }
 });
 
