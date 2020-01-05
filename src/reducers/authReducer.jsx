@@ -6,7 +6,7 @@ const initialState = {
   emailError: "",
   passwordError: "",
   currentUser: false,
-  isLoading: true,
+  isLoading: false,
   hasError: "",
   email: "",
   password: ""
@@ -15,16 +15,21 @@ const initialState = {
 const authReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
+      // upon submit, loading spinner will show, after success loading will stop
+      case types.SIGNUP_INIT:
+        draft.isLoading = true;
+        return;
       case types.SIGNUP_SUCCESS:
         console.log(action);
         draft.isAuthenticated = true;
         draft.email = "";
         draft.password = "";
-        draft.loading = false;
+        draft.isLoading = false;
         return;
       case types.SIGNUP_FAILURE:
         console.log(action);
         draft.error = action.error;
+        draft.isLoading = false;
         return;
       case types.SIGNOUT_SUCCESS:
         console.log(action);
@@ -33,6 +38,7 @@ const authReducer = (state = initialState, action) =>
       case types.SIGNOUT_FAILURE:
         console.log(action);
         draft.isAuthenticated = false;
+        draft.loading = false;
         return;
       case types.SIGNIN_SUCCESS:
         draft.isAuthenticated = true;

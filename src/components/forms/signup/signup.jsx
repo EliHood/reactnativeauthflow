@@ -23,7 +23,7 @@ const SignUpForm = props => (
       style={styles.textField}
       name="password"
       secureTextEntry
-      mode="outlined"
+      mode="flat"
       label="Enter Password"
       value={props.password}
       error={
@@ -40,6 +40,7 @@ const SignUpForm = props => (
     <View style={{ alignItems: "center" }}>
       <Button
         raised
+        loading={props.isLoading}
         disabled={props.disButton}
         style={styles.buttonCol}
         compact={true}
