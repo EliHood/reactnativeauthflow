@@ -39,6 +39,7 @@ const AppNavigator = createMaterialBottomTabNavigator(
     initialRouteName: "Home",
     activeColor: "#f0edf6",
     tabBarLabel: "Content",
+    adaptive: false,
     inactiveColor: "#333333",
     barStyle: {
       backgroundColor: "#B9D2B1",

@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
 
 const AddContentForm = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
     <HelperText type="error" visible={props.hasError}>
       {props.hasError}
     </HelperText>
@@ -12,7 +12,6 @@ const AddContentForm = props => (
       name="content"
       multiline={true}
       numberOfLines={4}
-      mode="outlined"
       label="Enter content"
       value={props.content}
       error={props.hasError === true || props.hasError === "" ? false : true}
@@ -27,7 +26,7 @@ const AddContentForm = props => (
     >
       Submit
     </Button>
-  </View>
+  </KeyboardAvoidingView>
 );
 
 const styles = StyleSheet.create({

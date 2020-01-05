@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
 
 const AddTitle = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
     <HelperText type="error" visible={props.hasError}>
       {props.hasError}
     </HelperText>
@@ -17,7 +17,6 @@ const AddTitle = props => (
       autoCapitalize="none"
       onChangeText={props.titleChange}
     />
-
     <Button
       disabled={props.disButton}
       style={styles.postbtn}
@@ -26,7 +25,7 @@ const AddTitle = props => (
     >
       Proceed
     </Button>
-  </View>
+  </KeyboardAvoidingView>
 );
 
 const styles = StyleSheet.create({
