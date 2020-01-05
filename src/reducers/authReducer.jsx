@@ -6,6 +6,7 @@ const initialState = {
   emailError: "",
   passwordError: "",
   currentUser: false,
+  // i dont need to show spinner by default, so lets hide it
   isLoading: false,
   hasError: "",
   email: "",

@@ -1,13 +1,12 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { TextInput, Button } from "react-native-paper";
-import { Subheading, HelperText } from "react-native-paper";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
+import { Button } from "react-native-paper";
+import { Subheading, TextInput, HelperText } from "react-native-paper";
 const SignUpForm = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
     <TextInput
       style={styles.textField}
       name="email"
-      mode="outlined"
       label="Enter Email"
       value={props.email}
       error={
@@ -49,7 +48,17 @@ const SignUpForm = props => (
         Submit
       </Button>
     </View>
-  </View>
+
+    <Button
+      style={styles.logInbutton}
+      icon="arrow-forward"
+      compact={true}
+      mode="outlined"
+      onPress={props.navigate}
+    >
+      Login
+    </Button>
+  </KeyboardAvoidingView>
 );
 const styles = StyleSheet.create({
   container: {
@@ -63,6 +72,9 @@ const styles = StyleSheet.create({
   textField: {
     borderTopColor: "transparent",
     borderLeftColor: "green"
+  },
+  logInbutton: {
+    marginTop: 40
   },
   buttonCol: {
     marginTop: 20,

@@ -47,18 +47,8 @@ class SignUpView extends Component {
           emailChange={this.emailChange}
           passwordChange={this.handlePasswordChange}
           onSubmit={() => this._register()}
+          navigate={() => this.props.navigation.navigate("Login")}
         />
-        <View style={styles.logIn}>
-          <Button
-            style={styles.button}
-            icon="arrow-forward"
-            compact={true}
-            mode="outlined"
-            onPress={() => this.props.navigation.navigate("Login")}
-          >
-            Login
-          </Button>
-        </View>
       </Fragment>
     );
   }
@@ -72,11 +62,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 20
   },
-  logIn: {
-    marginTop: 170,
-    flex: 1,
-    padding: 20
-  },
+  logIn: {},
   container: {
     flex: 1,
     padding: 20,

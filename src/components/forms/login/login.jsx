@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { Subheading } from "react-native-paper";
 const SignUpForm = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container}>
     <TextInput
       style={styles.textField}
       name="email"
@@ -26,21 +26,21 @@ const SignUpForm = props => (
     <Button style={styles.buttonCol} mode="contained" onPress={props.onSubmit}>
       Submit
     </Button>
-  </View>
+  </KeyboardAvoidingView>
 );
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 20
   },
   labels: {
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   textField: {
     marginBottom: 20,
-    borderTopColor: "#000",
+    borderTopColor: "#000"
   },
-  buttonCol: {},
+  buttonCol: {}
 });
 
 export default SignUpForm;
