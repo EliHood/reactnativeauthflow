@@ -1,5 +1,11 @@
 import React, { Component, Fragment } from "react";
-import { StyleSheet, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  KeyboardAvoidingView,
+  View,
+  Button,
+  TextInput
+} from "react-native";
 import LoginForm from "../forms/login/login";
 import { Subheading, Dialog } from "react-native-paper";
 import IsAuth from "../../hoc/isAuth";

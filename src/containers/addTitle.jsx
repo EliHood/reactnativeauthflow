@@ -5,7 +5,8 @@ const mapDispatchToProps = dispatch => ({
   addTitle: title => dispatch(addTitle(title))
 });
 const mapStateToProps = state => ({
-  post: state.post
+  post: state.post,
+  user: state.user
 });
 
 export default connect(

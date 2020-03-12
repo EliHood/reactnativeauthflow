@@ -20,15 +20,12 @@ export default class AuthLoadingScreen extends React.Component {
       });
       this.props.navigation.navigate(this.state.loggedIn ? "App" : "Auth");
     });
+    console.log(this.state.isLoading);
   };
 
   // Render any loading content that you like here
   render() {
-    return this.state.isLoading ? (
-      <View style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator size={60} color="#333" />
-      </View>
-    ) : null;
+    return null;
   }
 }
 const styles = StyleSheet.create({

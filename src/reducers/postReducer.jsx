@@ -1,11 +1,13 @@
 import produce from "immer";
+import { REHYDRATE } from "redux-persist";
 import * as types from "../actionTypes/postTypes";
 import { validateString, validateContent } from "../utils/validation";
 const initialState = {
   error: "",
   posts: [],
   title: "",
-  content: ""
+  content: "",
+  isLoading: false
 };
 
 const postReducer = (state = initialState, action) =>
@@ -33,6 +35,7 @@ const postReducer = (state = initialState, action) =>
         console.log(validateString(action.data));
         draft.title = action.data;
         draft.error = validateString(action.data);
+        draft.isLoading = true;
         break;
       case types.ADD_CONTENT:
         console.log(validateContent(action.data));

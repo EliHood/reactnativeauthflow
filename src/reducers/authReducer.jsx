@@ -25,7 +25,7 @@ const authReducer = (state = initialState, action) =>
         draft.isAuthenticated = true;
         draft.email = "";
         draft.password = "";
-        draft.isLoading = false;
+        draft.isLoading = true;
         return;
       case types.SIGNUP_FAILURE:
         console.log(action);

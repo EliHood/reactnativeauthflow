@@ -26,7 +26,11 @@ export default function(WrappedComponent) {
       return null;
     }
     render() {
-      return <WrappedComponent {...this.props} />;
+      return this.props.user.isLoading ? (
+        <ActivityIndicator size={60} color="#333" />
+      ) : (
+        <WrappedComponent {...this.props} />
+      );
     }
   }
   const mapStateToProps = state => ({

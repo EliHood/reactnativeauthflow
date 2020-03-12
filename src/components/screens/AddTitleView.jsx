@@ -1,8 +1,15 @@
 import React, { Component, Fragment } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  ActivityIndicator
+} from "react-native";
 import { Subheading, Dialog } from "react-native-paper";
 import { withNavigation } from "react-navigation";
 import AddTitle from "../forms/createPost/addTitle";
+import IsLoading from "../../hoc/isLoading";
 class AddTitleView extends Component {
   state = {
     content: "",
@@ -16,11 +23,13 @@ class AddTitleView extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { title, error } = this.props.post;
     const isEnabled = error === true ? false : true;
 
     return (
       <Fragment>
+        {/* <ActivityIndicator size={60} color="#333" /> */}
         <Subheading style={styles.labels}> Add A Thought</Subheading>
         <AddTitle
           title={title}
@@ -44,4 +53,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddTitleView;
+export default IsLoading(AddTitleView);

@@ -21,8 +21,9 @@ import {
   Provider as PaperProvider,
   Appbar
 } from "react-native-paper";
+import { PersistGate } from "redux-persist/es/integration/react";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store, persistor } from "./store";
 import AuthNav from "./authNav";
 // you can set your style right here, it'll be propagated to application
 
@@ -42,7 +43,9 @@ class App extends Component {
     return (
       <PaperProvider theme={theme}>
         <Provider store={store}>
-          <AuthNav />
+          <PersistGate loading={null} persistor={persistor}>
+            <AuthNav />
+          </PersistGate>
         </Provider>
       </PaperProvider>
     );
